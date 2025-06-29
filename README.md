@@ -1,5 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
+ 
 ## Getting Started
 
 First, run the development server:
@@ -16,21 +15,76 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Domain-Driven Frontend Architecture (DDD)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project follows a **Domain-Driven Folder Structure** within the `src/` directory.  
+Instead of organizing by file type (e.g., components, hooks, utils), it organizes by **domain context** such as `product`, `user`, `cart`, etc.
 
-## Learn More
+This approach aligns with the principles of **Domain-Driven Design (DDD)**, encouraging:
 
-To learn more about Next.js, take a look at the following resources:
+- Better code modularity
+- Clear separation of concerns
+- High reusability and testability
+- Scalable structure for large codebases
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Root Structure: `src/`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Files inside `src/` are organized **by domain**.  
+A **domain** refers to a specific feature or entity like `product`, `user`, `checkout`, etc.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Domain-Based Folder Convention
+
+Each domain will maintain its own folder where all relevant code resides:
+
+- `src/components/{domain}` → UI components (`ProductCard.tsx`, `UserProfile.tsx`)
+- `src/constants/{domain}` → Domain-specific constants
+- `src/models/{domain}` → TypeScript interfaces and models
+- `src/hooks/{domain}` → Custom hooks for that domain
+- `src/infrastructure/{domain}` → API calls, queries, and data access logic
+
+---
+
+## `components/` – UI Components
+
+All reusable and domain-specific UI components live here.
+
+```bash
+components/
+├── product/
+│   ├── ProductCard.tsx
+│   ├── ProductList.tsx
+├── user/
+│   ├── UserProfile.tsx
+└── layout/
+    ├── Header.tsx
+    ├── Footer.tsx
+    ├── Subscribe.tsx
+```
+
+## `infrastructure/` – Data Access & API Logic
+Used for handling data fetching, API clients, and TanStack React Query integrations.
+This layer abstracts HTTP logic away from components and centralizes domain-based API behavior
+ 
+```bash
+    infrastructure/
+    ├── blog/
+    │   ├── blogAPIClient.ts          # Core API functions for "blog" domain
+    │   ├── utils/
+    │   │   ├── queries.ts            # React Query queryFn + configuration
+    │   │   ├── keys.ts               # Query keys used in React Query
+    │   │   ├── types.ts              # Request/Response types for the product API
+    │   └── index.ts                  # Optional barrel file for product infrastructure
+    │
+    ├── portfolio/
+    │   ├── portfolioApiBoundary.ts   # API logic for portfolio domain
+    │   ├── utils/
+    │   │   ├── queries.ts            # React Query hooks/config
+    │   │   ├── keys.ts               # Query keys
+    │   │   ├── types.ts              # Types for portfolio requests/responses
+    │   └── index.ts
+```
