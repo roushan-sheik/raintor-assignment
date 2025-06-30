@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Brand Colors */
+    --color-brand-50: #FFF5F5;
+    --color-brand-100: #FFE3E3;
+    --color-brand-200: #FFBDBD;
+    --color-brand-300: #FF9999;
+    --color-brand-400: #FF4A57;
+    --color-brand-500: #D7000F;
+    --color-brand-600: #B8000D;
+    --color-brand-700: #A3000B;
+    --color-brand-800: #7A0009;
+    --color-brand-900: #520006;
+
+    /* Neutral Colors */
+    --color-neutral-100: #F1F5F9;
+    --color-neutral-300: #CBD5E1;
+    --color-neutral-500: #64748B;
+    --color-neutral-700: #334155;
+    --color-neutral-900: #0F172A;
+
+    /* Gray Scale */
+    --color-gray-50: #F9FAFB;
+    --color-gray-100: #F3F4F6;
+    --color-gray-200: #E5E7EB;
+    --color-gray-300: #D1D5DB;
+    --color-gray-400: #9CA3AF;
+    --color-gray-500: #6B7280;
+    --color-gray-600: #4B5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1F2937;
+    --color-gray-900: #111827;
+
+    --color-black: #000000;
+    --color-white: #FFFFFF;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* -----------------------------
+   Typography Utilities with Colors
+------------------------------ */
+@layer components {
+  .text-display1 {
+    @apply text-[4.5rem] leading-[1.4] text-[color:var(--color-neutral-900)];
+  }
+  .text-display2 {
+    @apply text-[4rem] leading-[1.4] text-[color:var(--color-neutral-900)];
+  }
+  .text-display3 {
+    @apply text-[3.5rem] leading-[1.4] text-[color:var(--color-neutral-900)];
+  }
+
+  .text-title2 {
+    @apply text-[3rem] leading-[1.4] text-[color:var(--color-neutral-900)];
+  }
+  .text-title3 {
+    @apply text-[2.25rem] leading-[1.4] text-[color:var(--color-neutral-900)];
+  }
+
+  .text-heading1 {
+    @apply text-[1.875rem] leading-[1.4] text-[color:var(--color-neutral-900)];
+  }
+  .text-heading2 {
+    @apply text-[1.5rem] leading-[1.4] text-[color:var(--color-neutral-900)];
+  }
+  .text-heading3 {
+    @apply text-[1.25rem] leading-[1.4] text-[color:var(--color-neutral-900)];
+  }
+
+  .text-body1 {
+    @apply text-[1.125rem] leading-[1.4] text-[color:var(--color-neutral-700)];
+  }
+  .text-body2 {
+    @apply text-[1rem] leading-[1.4] text-[color:var(--color-neutral-700)];
+  }
+  .text-body3 {
+    @apply text-[0.875rem] leading-[1.4] text-[color:var(--color-neutral-700)];
+  }
+
+  .text-caption1 {
+    @apply text-[0.75rem] leading-[1.4] text-[color:var(--color-neutral-500)];
+  }
+  .text-caption2 {
+    @apply text-[0.625rem] leading-[1.4] text-[color:var(--color-neutral-500)];
+  }
 }
