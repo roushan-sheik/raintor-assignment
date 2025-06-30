@@ -1,5 +1,5 @@
  
-import delay from '../../utils/function/delay';
+import { delay } from '@/utils/functions/delay';
 import { mockBlogs } from './mockBlogs';
 import { BlogResponse } from './utils/types';
  
