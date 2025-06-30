@@ -1,5 +1,34 @@
  
 ## Getting Started
+# Raintor Assignment – Frontend
+
+This is the frontend for the **Raintor Assignment** built using [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/). It also uses [React Query](https://tanstack.com/query/latest) for data fetching and caching.
+
+---
+
+## 🚀 Features
+
+- Next.js App Router
+- TypeScript support
+- Tailwind CSS styling
+- React Query for data fetching
+- ESLint + Prettier configured
+- Production-ready build scripts
+- Lucide react (Icons)
+
+---
+
+## 📦 Getting Started Locally
+
+### 1. Clone the Repository
+
+```bash
+git clone git@github.com:roushan-sheik/raintor-assignment.git
+```
+```bash
+cd raintor-assignment/raintor-frontend
+```
+
 
 First, run the development server:
 
