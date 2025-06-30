@@ -1,8 +1,11 @@
+import HeroSection from '@/container/home/components/sections/HeroSecion'
 import React from 'react'
 
 const HomePage = () => {
   return (
-    <div className='text-display1'>HomePage</div>
+   <div className="min-h-screen">
+      <HeroSection />
+    </div>
   )
 }
 
