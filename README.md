@@ -1,6 +1,8 @@
  
 ## Getting Started
 # Raintor Assignment – Frontend
+ 
+🌐 **Live Demo**: [https://raintor-assignment-sepia.vercel.app/](https://raintor-assignment-sepia.vercel.app/)
 
 This is the frontend for the **Raintor Assignment** built using [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/). It also uses [React Query](https://tanstack.com/query/latest) for data fetching and caching.
 
